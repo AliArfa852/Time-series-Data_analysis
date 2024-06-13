@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Background image */
+        body {
+            background-image: url("{{ url_for('static', filename='home.jpg') }}");
+            background-size: cover; /* Fit the screen and crop to adjust */
+            margin-top: 160px;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #fff; /* text color */
+        }
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Background color with transparency */
+        }
+        /* CSS for table */
+        .info-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .info-table th,
+        .info-table td {
+            padding: 8px;
+            border: 1px solid #089df3;
+            text-align: left;
+        }
+
+        .info-table th {
+            background-color: #089df3;
+        }
+        .enlarged-image {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .enlarged-image img {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Model Evaluation Dashboard</h1>
+        </div>
+
+        <div class="content">
+            <div class="info">
+                <h2>Information</h2>
+                <table class="info-table">
+                    <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Selected Dataset</td>
+                            <td>{{ dataset }}</td>
+                        </tr>
+                        <tr>
+                            <td>Selected Model</td>
+                            <!-- console.log({{model}}) -->
+                            <td>{{ model }}</td>
+                        </tr>
+                        
+                        <!-- {% if parameters %}
+                            <tr>
+                                <td>Parameters</td>
+                                <td>
+                                    <ul>
+                                        {% for key, value in parameters.items() %}
+                                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td>Parameters</td>
+                                <td>No parameters available</td>
+                            </tr>
+                        {% endif %} -->
+                        {% if parameters %}
+                            <tr>
+                                <td>Parameters</td>
+                                <td>
+                                    <ul>
+                                        {% for key, value in parameters.items() %}
+                                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td>Parameters</td>
+                                <td>No parameters available</td>
+                            </tr>
+                        {% endif %}
+                        {% if rmse %}
+                            <tr>
+                                <td>Root Mean Square Error (RMSE)</td>
+                                <td>{{ rmse }}</td>
+                            </tr>
+                        {% endif %}
+                        {% if loss %}
+                            <tr>
+                                <td>Loss</td>
+                                <td>{{ loss }}</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="images">
+                <h2>Images</h2>
+                {% if images %}
+                    <div class="image-gallery">
+                        {% for image in images %}
+                            <img src="{{ image }}" alt="Image" class="image-thumbnail">
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No images available</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="/" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+        
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var images = document.querySelectorAll(".image-thumbnail");
+            var enlargedImage = document.createElement("div");
+            enlargedImage.classList.add("enlarged-image");
+
+            images.forEach(function(image) {
+                image.addEventListener("click", function() {
+                    var imgClone = image.cloneNode(true);
+                    enlargedImage.innerHTML = "";
+                    enlargedImage.appendChild(imgClone);
+                    document.body.appendChild(enlargedImage);
+                    enlargedImage.style.display = "block";
+
+                    enlargedImage.addEventListener("click", function() {
+                        enlargedImage.style.display = "none";
+                    });
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mining Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Welcome to the Data Mining Dashboard</h1>
+        <p class="lead">Select a dataset and a model to view the results.</p>
+        <form method="post" action="/">
+            <div class="form-group">
+                <label for="model">Select Model:</label>
+                <select class="form-control" id="model" name="model">
+                    <option value="model1">Model 1</option>
+                    <option value="model2">Model 2</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dataset">Select Dataset:</label>
+                <select class="form-control" id="dataset" name="dataset">
+                    <option value="dataset1">Dataset 1</option>
+                    <option value="dataset2">Dataset 2</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <img src="{{ url_for('static', filename='image/finance.png') }}" class="img-fluid" alt="Finance Image">
+    </div>
+</body>
+</html>
