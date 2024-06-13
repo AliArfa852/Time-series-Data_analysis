@@ -1,0 +1,103 @@
+/* style.css */
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Content */
+.content {
+    margin-top: 20px;
+}
+
+/* Model Info */
+.model-info h2 {
+    font-size: 24px;
+}
+
+.model-info p {
+    font-size: 18px;
+}
+
+/* Parameters */
+.parameters h2 {
+    font-size: 24px;
+}
+
+.parameters ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.parameters li {
+    font-size: 18px;
+}
+
+/* Metrics */
+.metrics h2 {
+    font-size: 24px;
+}
+
+.metrics p {
+    font-size: 18px;
+}
+
+/* Images */
+.images h2 {
+    font-size: 24px;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Select dropdown */
+.form-control {
+    height: 40px;
+    font-size: 16px;
+}
