@@ -1,1 +1,128 @@
-{"arima_environment": [[1, 2, 1], 3.1574256811829193], "arima_energy": [[2, 1, 2], 2613.0169685956607], "arima_finance": [[2, 2, 1], 595.6818988829195], "finance_dfarima": {"d": 1, "p": 0.9914958358938257}, "environment_dfarima": {"d": 1, "p": 0.760444269150121}, "energy_dfarima": {"d": 0, "p": 2.3924187470182788e-29}, "environment_ann": {"loss": 15.791674613952637}, "energy_ann": {"loss": 6079678.0}, "finance_ann": {"loss": 292080.46875}, "finance_svr": {"rmse": 199.1997645729549, "best_params": {"C": 100, "gamma": "auto", "kernel": "rbf"}, "model": "saved"}, "enviroment_svr": {"rmse": 2.230234698492288, "best_params": {"C": 100, "gamma": "scale", "kernel": "rbf"}, "model": "saved"}, "engery_svr": {"rmse": 2547.015096204535, "best_params": {"C": 100, "gamma": "auto", "kernel": "rbf"}, "model": "saved"}, "finance_lstm": {"rmse": 2910.0293792937723, "model": "saved"}, "enviroment_lstm": {"rmse": 8.435306356881032, "model": "saved"}, "energy_lstm": {"rmse": 2429.519522255356, "model": "saved"}, "environment_arima_ann": {"loss": 53.78253173828125}, "energy_arima_ann": {"loss": 83921.859375}, "finance_arima_ann": {"loss": 672.6235961914062}}
+{
+  "Finance": {
+    "arima": {
+      "best_params": {"p": 2, "d": 2, "q": 1},
+      "rmse": 595.6818988829195,
+      "image": ["static/image/finance.png", "static/image/finance_ann_afc_pacf.png", "static/image/finance_arima_model.png"]
+    },
+    "ann": {
+      "loss": 292080.46875,
+      "image":  ["static/image/finance.png", "static/image/finance_ann_afc_pacf.png", "static/image/finance_ann_model.png", "static/image/finance_ann_loss.png"]
+    },
+    "lstm": {
+      "rmse": 2910.0293792937723,
+      "model": "saved",
+      "image":  ["static/image/finance.png", "static/image/finance_dfann_afc_pacf.png", "static/image/finance_lstm_model.png"]
+    },
+    "sarima": {
+        "best_params": {"p": 1, "d": 1, "q": 1, "s": 12},
+        "image": ["static/image/finance.png", "static/image/finance_sarima_forecast.png", "static/image/finance_dfann_afc_pacf.png"]
+         },
+    "df_arima": {
+      "best_params": {"p": 0.9914958358938257, "d": 1, "q": 0},
+      "image":  ["static/image/finance.png", "static/image/finance_dfann_afc_pacf.png"]
+    },
+    "svr": {
+      "rmse": 199.1997645729549,
+      "best_params": {"C": 100, "gamma": "auto", "kernel": "rbf"},
+      "model": "saved",
+      "image":  ["static/image/finance.png", "static/image/finance_ann_afc_pacf.png", "static/image/finance_svr_model.png"]
+       },
+    "hybrid": {
+      "loss": 672.6235961914062,
+      "image":   ["static/image/finance.png", "static/image/finance_ann_afc_pacf.png", "static/image/finance_hybrid_model.png", "static/image/finance_sarima_ann_model.png"]
+    },
+
+    "ets": {
+      "rmse": 24.875404587757554,
+      "image":  ["static/image/finance.png", "static/image/finance_dfann_afc_pacf.png", "static/image/finance_ets_forecast.png"]
+    },
+    "prophet":{
+      "image":  ["static/image/finance.png", "static/image/finance_dfann_afc_pacf.png", "static/image/finance_prophet.png"]
+    }
+  },
+  "Energy": {
+    "arima": {
+      "best_params": {"p": 2, "d": 1, "q": 2},
+      "rmse": 2613.0169685956607,
+      "image": ["static/image/energy.png", "static/image/energy_dfann_afc_pacf.png", "static/image/energy_arima_model.png"]
+    },
+    "ann": {
+      "loss": 6079678.0,
+      "image": ["static/image/energy.png", "static/image/energy_dfann_afc_pacf.png", "static/image/energy_ann_model.png",  "static/image/energy_ann_loss.png"]
+    },
+    "lstm": {
+      "rmse": 2429.519522255356,
+      "model": "saved",
+      "image": ["static/image/energy.png", "static/image/energy_dfann_afc_pacf.png", "static/image/energy_lstm_model.png"]
+    },
+    "df_arima": {
+      "best_params":{"p": 2.3924187470182788e-29, "d": 0, "q":0},
+      "image": ["static/image/energy.png", "static/image/energy_dfann_afc_pacf.png"]
+    },
+    "svr": {
+      "rmse": 2547.015096204535,
+      "best_params": {"C": 100, "gamma": "auto", "kernel": "rbf"},
+      "model": "saved",
+      "image": ["static/image/energy.png", "static/image/energy_dfann_afc_pacf.png", "static/image/engery_svr_model.png"]
+    },
+    "hybrid": {
+      "loss": 83921.859375,
+      "image":["static/image/energy.png", "static/image/energy_dfann_afc_pacf.png", "static/image/energy_hybrid_model.png"]
+    },
+    "sarima": {
+      "best_params": {"p": 1, "d": 1, "q": 1, "s": 12},
+      "image": ["static/image/energy.png", "static/image/energy_dfann_afc_pacf.png", "static/image/energy_sarima_forecast.png"]
+       },
+       "ets": {
+        "rmse": 461.91326117112885,
+        "image":  ["static/image/energy.png", "static/image/energy_dfann_afc_pacf.png","static/image/energy_ets_forecast.png"]
+      },
+      "prophet":{
+        "image":  ["static/image/energy.png", "static/image/energy_dfann_afc_pacf.png", "static/image/energy_prophet.png"]
+      
+      }
+  },
+  "Environment": {
+    "arima": {
+      "best_params": {"p": 1, "d": 2, "q": 1},
+      "rmse": 3.1574256811829193,
+      "image": ["static/image/environment.png", "static/image/environment_ann_afc_pacf.png", "static/image/environment_arima_model.png"]
+    },
+    "ann": {
+      "loss": 15.791674613952637,
+      "image": ["static/image/environment.png",  "static/image/environment_dfann_afc_pacf.png", "static/image/environment_ann_model.png", "static/image/environment_ann_loss.png"]
+    },
+    "lstm": {
+      "rmse": 8.435306356881032,
+      "model": "saved",
+      "image": ["static/image/environment.png", "static/image/environment_ann_afc_pacf.png", "static/image/enviroment_lstm_model.png"]
+    },
+    "df_arima": {
+      "best_params": {"p":  0.760444269150121, "d": 1, "q": 0},
+      "image": ["static/image/environment.png", "static/image/environment_ann_afc_pacf.png", "static/image/environment_dfann_afc_pacf.png"]
+    },
+    "svr": {
+      "rmse": 2.230234698492288,
+      "best_params": {"C": 100, "gamma": "scale", "kernel": "rbf"},
+      "model": "saved",
+      "image": ["static/image/environment.png", "static/image/environment_ann_afc_pacf.png", "static/image/enviroment_svr_model.png"]
+    },
+    "hybrid": {
+      "loss": 53.78253173828125,
+      "image": ["static/image/environment.png", "static/image/environment_ann_afc_pacf.png", "static/image/environment_sarima_ann_model.png"]
+    },
+    "sarima": {
+      "best_params": {"p": 1, "d": 1, "q": 1, "s": 12},
+      "image": ["static/image/environment.png", "static/image/environment_dfann_afc_pacf.png","static/image/environment_sarima_forecast.png"]
+       },
+       "ets": {
+        "rmse":0.5169036320582576,
+        "image":  ["static/image/environment.png", "static/image/environment_dfann_afc_pacf.png", "static/image/environment_ets_forecast.png"]
+       },
+      "prophet":{
+        "image": ["static/image/environment.png", "static/image/environment_dfann_afc_pacf.png", "static/image/environment_prophet.png"]
+
+      }
+  }
+}
